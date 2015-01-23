@@ -8319,6 +8319,12 @@ blockquote small {
     background: #ccc;
     background: rgba(0,0,0,.3);
 }
+
+/* Sitemap */
+#sitemap .subitems {
+    margin-left: 40px;
+}
+
 @media (max-width: 979px) {
     .header .primary .navbar .nav > .parent.active > a,
     .header .primary .navbar .nav > .parent.active:hover > a,
