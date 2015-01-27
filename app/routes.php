@@ -20,5 +20,7 @@ Route::get('sitemap.xml', 'SiteController@sitemapXml');
 Route::get('kontakty', 'SiteController@contact');
 Route::post('contact_request','SiteController@contactPost');
 
+Route::post('order_request','OrderSiteWidget@orderPost');
+
 Route::get('{alias}', 'SiteController@page');
 Route::get('{parentAlias}/{alias}', 'SiteController@subPage');

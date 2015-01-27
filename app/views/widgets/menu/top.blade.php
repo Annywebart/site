@@ -1,3 +1,4 @@
+<?php $orderSiteWidget = app('OrderSiteWidget') ?>
 <ul class="nav">
     @foreach($pages as $page)
         <li class="{{ !count($page->children) ? '' : 'parent'}}{{ (URL::current() != URL::to($page->alias)) ? '' : ' active'}}">
@@ -16,6 +17,6 @@
         </li>
     @endforeach
     <li class="color">
-        <a href="#">Заказать сайт</a>
+        {{ $orderSiteWidget->button() }}
     </li>
 </ul>

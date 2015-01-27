@@ -54,53 +54,12 @@ class SiteController extends BaseController
                     $message->to($data['email'], $data['name'])->subject(Config::get('params.contactSubjectToUser'));
                 });
                 return Redirect::back()
-                    ->with('successMessage', 'Ваше сообщение успешно отправлено. Спасибо!');
+                    ->with('successMessage', Config::get('params.contactSuccess'));
             }
         } else {
             return Redirect::back()->withErrors($validator)->withInput();
         }
     }
-
-    public function getContactForm()
-    {
-        //Get all the data and store it inside Store Variable
-        $data = Input::all();
-
-        //Validation rules
-        $rules = [
-            'name' => 'required|min:3',
-            'email' => 'required|email',
-            'phone' => 'numeric|between:10,11',
-            'message' => 'required|min:5'
-        ];
-
-        //Validate data
-        $validator = Validator::make($data, $rules);
-
-        //If everything is correct than run passes.
-        if ($validator->passes()) {
-
-            Mail::send('emails.feedback', $data, function ($message) use ($data) {
-                //$message->from($data['email'] , $data['first_name']); uncomment if using first name and email fields
-                $message->from('feedback@gmail.com', 'feedback contact form');
-                //email 'To' field: cahnge this to emails that you want to be notified.
-                $message->to('feedback@gmail.com', 'John')->cc('feedback@gmail.com')->subject('feedback form submit');
-
-            });
-            // Redirect to page
-            return Redirect::action('SiteController@contact')
-                ->with('message', 'Your message has been sent. Thank You!');
-
-
-            //return View::make('contact');
-        } else {
-            //return contact form with errors
-            return Redirect::route('SiteController@contact')
-                ->with('error', 'Feedback must contain more than 5 characters. Try Again.');
-
-        }
-    }
-
 
     public function prices()
     {

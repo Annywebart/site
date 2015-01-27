@@ -1,4 +1,7 @@
-<?php $menuWidget = app('MenuWidget') ?>
+<?php
+    $menuWidget = app('MenuWidget');
+    $orderSiteWidget = app('OrderSiteWidget');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -199,6 +202,8 @@
 
 <!-- Контакты на шапке -->
 {{ HTML::script('template/js/main.js') }}
+
+{{ $orderSiteWidget->form() }}
 
 </body>
 </html>

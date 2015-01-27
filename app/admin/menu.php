@@ -18,3 +18,4 @@
 Admin::menu()->url('/')->label('Start page')->icon('fa-dashboard')->uses('\SleepingOwl\Admin\Controllers\DummyController@getIndex');
 Admin::menu(\Pages::class)->icon('fa-list-alt');
 Admin::menu(\Contact::class)->icon('fa-envelope');
+Admin::menu(\Order::class)->icon('fa-shopping-cart');

@@ -14,28 +14,28 @@
                         <div class="span12 bottom-padding-mobile">
                             {{ $model->content }}
 
-                            <ul id="sitemap">
+                            <div id="sitemap">
                                 @foreach($pages as $page)
-                                    <li>
+
                                         <blockquote>
                                             <p><a href="{{ URL::to($page->alias) }}">{{ $page->menu_title }}</a></p>
                                             <small>{{ $page->title }}</small>
                                         </blockquote>
-                                    </li>
+
                                     @if(count($page->children))
-                                        <ul>
+                                        <div class="subitems">
                                             @foreach($page->children as $child)
-                                                <li>
+
                                                     <blockquote>
                                                         <p><a href="{{ URL::to($page->alias . '/' . $child->alias) }}">{{ $child->menu_title }}</a></p>
                                                         <small>{{ $child->title }}</small>
                                                     </blockquote>
-                                                </li>
+
                                             @endforeach
-                                        </ul>
+                                        </div>
                                     @endif
                                 @endforeach
-                            </ul>
+                            </div>
 
                         </div>
                         <!-- .employee -->

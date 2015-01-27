@@ -8349,3 +8349,61 @@ blockquote small {
 .product .product-hover ul li {
     background-image: url("img/svg/check-icon-white.svg"), none;
 }
+
+/* Order Site Form */
+#order-site-form,
+#order-site-message {
+    display: none;
+    position: fixed;
+    top: 130px;
+    left: 50%;
+    margin-left: -250px;
+    height: auto;
+    width: 500px;
+    background: #ffffff;
+    z-index: 1010;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    border: 1px solid #CCC;
+}
+#order-site-message #success {
+    margin: 30px;
+    font-size: 16px;
+}
+#order-site-form #close-order-site-form,
+#order-site-message #close-order-site-message {
+    float: right;
+    margin: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#order-site-form .form-header,
+#order-site-message .form-header {
+    text-align: center;
+}
+#order-site-form .form-header .title,
+#order-site-message .form-header .title {
+    color: #1E1E1E;
+    font-weight: 100;
+    margin: 5px 0;
+}
+#order-site-form .form-body .form-group label {
+    float: left;
+    width: 30% !important;
+}
+#order-site-form .form-body .form-group .input-block-level {
+    float: left;
+    width: 70% !important;
+}
+#order-site-form .form-body .radio-group {
+    display: inline-block;
+    width: 100%;
+    clear: both;
+}
+#order-site-form .form-body .radio-group .type {
+    float: left;
+    width: 25%;
+}
+/* End Order Site Form */
