@@ -15,12 +15,12 @@ class CreatePagesTable extends Migration {
 		Schema::create('pages', function ($table) {
 			$table->increments('id');
 			$table->integer('parent_id')->default(0);
-			$table->tinyInteger('is_published')->default(0);
+			$table->boolean('is_published')->default(0);
 			$table->tinyInteger('position')->default(0);
 			$table->string('alias', 100);
 			$table->string('menu_title', 100);
 			$table->string('title', 200);
-			$table->tinyInteger('is_container')->default(0);
+			$table->boolean('is_container')->default(0);
 			$table->string('introtext', 1000)->nullable();
 			$table->text('content');
 			$table->timestamps();

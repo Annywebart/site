@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 4, to provide autocomplete information to your IDE
- * Generated for Laravel 4.2.16 on 2015-01-26.
+ * Generated for Laravel 4.2.17 on 2015-12-03.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -4266,6 +4266,20 @@ namespace {
         }
         
         /**
+         * Add a "where date" statement to the query.
+         *
+         * @param string $column
+         * @param string $operator
+         * @param int $value
+         * @param string $boolean
+         * @return \Illuminate\Database\Query\Builder|static 
+         * @static 
+         */
+        public static function whereDate($column, $operator, $value, $boolean = 'and'){
+            return \Illuminate\Database\Query\Builder::whereDate($column, $operator, $value, $boolean);
+        }
+        
+        /**
          * Add a "where day" statement to the query.
          *
          * @param string $column
@@ -5098,11 +5112,12 @@ namespace {
          *
          * @param string $path
          * @param string $contents
+         * @param bool $lock
          * @return int 
          * @static 
          */
-        public static function put($path, $contents){
-            return \Illuminate\Filesystem\Filesystem::put($path, $contents);
+        public static function put($path, $contents, $lock = false){
+            return \Illuminate\Filesystem\Filesystem::put($path, $contents, $lock);
         }
         
         /**
@@ -5528,6 +5543,7 @@ namespace {
          * Create a number input field.
          *
          * @param string $name
+         * @param string|null $value
          * @param array $options
          * @return string 
          * @static 
@@ -7758,7 +7774,7 @@ namespace {
          * Register an error_log handler.
          *
          * @param string $level
-         * @param integer $messageType
+         * @param int $messageType
          * @return void 
          * @static 
          */
@@ -12299,90 +12315,6 @@ namespace {
     }
 
 
-    class AdminAuth extends \SleepingOwl\AdminAuth\Facades\AdminAuth{
-        
-        /**
-         * Create an instance of the Eloquent driver.
-         *
-         * @return \Illuminate\Auth\Guard 
-         * @static 
-         */
-        public static function createEloquentDriver(){
-            return \SleepingOwl\AdminAuth\AdminAuthManager::createEloquentDriver();
-        }
-        
-        /**
-         * Get the default authentication driver name.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getDefaultDriver(){
-            return \SleepingOwl\AdminAuth\AdminAuthManager::getDefaultDriver();
-        }
-        
-        /**
-         * Create an instance of the database driver.
-         *
-         * @return \Illuminate\Auth\Guard 
-         * @static 
-         */
-        public static function createDatabaseDriver(){
-            //Method inherited from \Illuminate\Auth\AuthManager            
-            return \SleepingOwl\AdminAuth\AdminAuthManager::createDatabaseDriver();
-        }
-        
-        /**
-         * Set the default authentication driver name.
-         *
-         * @param string $name
-         * @return void 
-         * @static 
-         */
-        public static function setDefaultDriver($name){
-            //Method inherited from \Illuminate\Auth\AuthManager            
-            \SleepingOwl\AdminAuth\AdminAuthManager::setDefaultDriver($name);
-        }
-        
-        /**
-         * Get a driver instance.
-         *
-         * @param string $driver
-         * @return mixed 
-         * @static 
-         */
-        public static function driver($driver = null){
-            //Method inherited from \Illuminate\Support\Manager            
-            return \SleepingOwl\AdminAuth\AdminAuthManager::driver($driver);
-        }
-        
-        /**
-         * Register a custom driver creator Closure.
-         *
-         * @param string $driver
-         * @param \Closure $callback
-         * @return $this 
-         * @static 
-         */
-        public static function extend($driver, $callback){
-            //Method inherited from \Illuminate\Support\Manager            
-            return \SleepingOwl\AdminAuth\AdminAuthManager::extend($driver, $callback);
-        }
-        
-        /**
-         * Get all of the created "drivers".
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getDrivers(){
-            //Method inherited from \Illuminate\Support\Manager            
-            return \SleepingOwl\AdminAuth\AdminAuthManager::getDrivers();
-        }
-        
-    }
-
-
     class AssetManager extends \SleepingOwl\Admin\AssetManager\AssetManager{
         
     }
@@ -12478,7 +12410,7 @@ namespace {
         /**
          * Modify the response and inject the debugbar (or data in headers)
          *
-         * @param \Illuminate\Http\Request $request
+         * @param \Symfony\Component\HttpFoundation\Request $request
          * @param \Symfony\Component\HttpFoundation\Response $response
          * @return \Symfony\Component\HttpFoundation\Response 
          * @static 

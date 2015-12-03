@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://site.dev',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'Europe/Kiev',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -125,7 +125,6 @@ return array(
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
 		/*---*/
-		'SleepingOwl\Admin\AdminServiceProvider',
 		'Anhskohbo\NoCaptcha\NoCaptchaServiceProvider',
 
 	),
@@ -200,7 +199,9 @@ return array(
 		'Column'            => 'SleepingOwl\Admin\Columns\Column',
 		'FormItem'          => 'SleepingOwl\Admin\Models\Form\FormItem',
 		'ModelItem'         => 'SleepingOwl\Admin\Models\ModelItem',
+		/*--- for developing --*/
 		'Debugbar'          => 'Barryvdh\Debugbar\Facade',
+		/*---*/
 	),
 
 );

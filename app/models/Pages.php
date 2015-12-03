@@ -43,7 +43,21 @@ class Pages extends SleepingOwl\Models\SleepingOwlModel {
      */
     protected $table = 'pages';
 
-    protected  $fillable = ['parent_id', 'is_published', 'position', 'alias', 'menu_title', 'title', 'introtext', 'content', 'published_at', 'meta_title', 'meta_desc', 'meta_key'];
+    protected  $fillable = [
+	    'parent_id',
+	    'is_published',
+	    'position',
+	    'alias',
+	    'menu_title',
+	    'title',
+	    'introtext',
+	    'is_container',
+	    'content',
+	    'published_at',
+	    'meta_title',
+	    'meta_desc',
+	    'meta_key'
+    ];
 
     public function children()
     {
